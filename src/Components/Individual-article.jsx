@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getIndividualArticle, getComments } from "../../api";
+import CommentCard from "./Comment-card";
 
 export default function IndividualArticle() {
 const [singleArticle, setSingleArticle] = useState({})
@@ -28,7 +29,11 @@ const {title, topic, article_img_url, body, votes, author, created_at } = single
 
 const date = (created_at) ? created_at.slice(0, 10): ""
 
-
+const commentElement = comments.map((comment) => (
+    <div key={comment.comment_id}>
+<CommentCard comment={ comment }/>
+    </div>
+))
 
 return (
     <div>
@@ -39,6 +44,8 @@ return (
 <img src={article_img_url}></img>
 <p>{body}</p>
 <p>votes: {votes}</p>
+<h5>Comments</h5>
+{commentElement}
     </div>
 )
 

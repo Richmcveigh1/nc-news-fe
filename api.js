@@ -1,29 +1,37 @@
 import axios from "axios";
 
-export const getArticles = () => {
-    return axios.get('https://rich-mcveigh-nc-news-web-service.onrender.com/api/articles')
-        .then(({data: {allArticles}}) => {
-            return allArticles
-        })
-}
+const api = axios.create({
+    baseURL: 'https://rich-mcveigh-nc-news-web-service.onrender.com/api'
+})
 
-export const getTopic = () => {
-    return axios.get('https://rich-mcveigh-nc-news-web-service.onrender.com/api/topics')
-    .then(({data: {topics}}) => {
-        return topics
-    })
-}
+export const getArticles = () => {
+  return api.get('/articles')
+    .then(({ data: { allArticles } }) => {
+      return allArticles;
+    });
+};
 
 export const getIndividualArticle = (article_id) => {
-    return axios.get(`https://rich-mcveigh-nc-news-web-service.onrender.com/api/articles/${article_id}`)
-    .then(({data: {article}}) => {
-        return article
-    })
-}
+  return api.get(
+      `/articles/${article_id}`
+    )
+    .then(({ data: { article } }) => {
+      return article;
+    });
+};
 
 export const getComments = (article_id) => {
-    return axios.get(`https://rich-mcveigh-nc-news-web-service.onrender.com/api/articles/${article_id}/comments`)
-    .then(({data: {comments}}) => {
-        return comments
-    })
-}
+  return api.get(
+      `/articles/${article_id}/comments`
+    )
+    .then(({ data: { comments } }) => {
+      return comments;
+    });
+};
+
+export const getTopic = () => {
+  return api.get('/topics')
+    .then(({ data: { topics } }) => {
+      return topics;
+    });
+};
