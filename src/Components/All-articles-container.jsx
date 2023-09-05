@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import ArticleCard from "./Article-card";
 import { getArticles } from "../../api";
 
-export default function ArticleContainer() {
-  const [articles, setArticles] = useState([]);
+export default function ArticleContainer({articles, setArticles}) {
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -30,5 +30,6 @@ export default function ArticleContainer() {
     </div>
   ));
 
-  return <div className="article-container">{articleElements}</div>;
+  return <div className="article-container">
+    {articleElements}</div>;
 }

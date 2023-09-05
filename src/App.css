@@ -6,20 +6,26 @@
   padding: 2rem;
   text-align: center;
   width: 100%;
- min-height: 100vh;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .title {
-  border: 5px solid blue
+  border: 2px solid blue;
+  background-color: #fdca40;
+  h1 {
+    pointer-events: visibleStroke;
+  }
+
 }
 
 .article-container {
-  border: 5px solid red;
+  border: 2px solid red;
   flex: 1;
 }
 
 .article-card {
-  border: 5px solid green;
+  border: 2px solid green;
   padding: 1em;
   .article-card-img {
     width: 50%;
@@ -27,24 +33,24 @@
   }
 }
 
+
 .navbar {
-  border: 5px solid white;
- 
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex; 
-  justify-content: center; 
-  gap: 10px; 
-  justify-content: space-between;
-  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr)
 
 }
 
 .nav-button {
-  flex: 1; 
-  border: 5px solid white;
-  text-align: center; 
+  border: 0.5px solid white;
+  width: 100%;
+  text-align: center;
   padding: 10px;
+}
+
+@media only screen and(min-width: 600px) {
+
 }
