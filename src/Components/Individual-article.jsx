@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getIndividualArticle } from "../../api";
+import { getIndividualArticle, getComments } from "../../api";
 
 export default function IndividualArticle() {
 const [singleArticle, setSingleArticle] = useState({})
+const [comments, setComments] = useState([])
 const { article_id } = useParams()
 
 
@@ -14,11 +15,20 @@ useEffect(() => {
     })
 }, [setSingleArticle])
 
-console.log(singleArticle)
+useEffect(() => {
+    getComments(article_id)
+    .then((data) => {
+        setComments(data)
+    })
+}, [setComments])
+
+
 
 const {title, topic, article_img_url, body, votes, author, created_at } = singleArticle
 
 const date = (created_at) ? created_at.slice(0, 10): ""
+
+
 
 return (
     <div>

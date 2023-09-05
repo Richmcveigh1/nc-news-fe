@@ -21,3 +21,9 @@ export const getIndividualArticle = (article_id) => {
     })
 }
 
+export const getComments = (article_id) => {
+    return axios.get(`https://rich-mcveigh-nc-news-web-service.onrender.com/api/articles/${article_id}/comments`)
+    .then(({data: {comments}}) => {
+        return comments
+    })
+}
