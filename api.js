@@ -29,6 +29,13 @@ export const getComments = (article_id) => {
     });
 };
 
+export const getArticlesByTopic = (topic) => {
+    return api.get(`/articles?topic=${topic}`)
+    .then(({ data: { topics }}) => {
+        return topics
+    })
+}
+
 export const getTopic = () => {
   return api.get('/topics')
     .then(({ data: { topics } }) => {
