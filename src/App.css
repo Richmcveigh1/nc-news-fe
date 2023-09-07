@@ -51,6 +51,9 @@
   padding: 10px;
 }
 
+.vote-button {
+  justify-content: space-between;
+}
 .highlighted-vote-button {
   background-color: #3772ff;
 }

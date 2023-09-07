@@ -2,17 +2,18 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getIndividualArticle, getComments } from "../../api";
 import CommentCard from "./Comment-card";
+import ArticleCard from "./Article-card";
 
 export default function IndividualArticle() {
   const [singleArticle, setSingleArticle] = useState({});
   const [comments, setComments] = useState([]);
-  const [voteCount, setVoteCount] = useState(null)
+
   const { article_id } = useParams();
 
   useEffect(() => {
     getIndividualArticle(article_id).then((data) => {
       setSingleArticle(data);
-      setVoteCount(data.votes)
+
     });
   }, [setSingleArticle]);
 
@@ -22,11 +23,6 @@ export default function IndividualArticle() {
     });
   }, [setComments]);
 
-  const { title, topic, article_img_url, body, votes, author, created_at } =
-    singleArticle;
-
-
-  const date = created_at ? created_at.slice(0, 10) : "";
 
   const commentElement = comments.map((comment) => (
     <div key={comment.comment_id}>
@@ -36,13 +32,7 @@ export default function IndividualArticle() {
 
   return (
     <div>
-      <p>{date}</p>
-      <p>{topic}</p>
-      <h1>{title}</h1>
-      <p>{author}</p>
-      <img src={article_img_url}></img>
-      <p>{body}</p>
-      <p>votes: {voteCount !== null ? voteCount : votes}</p>
+      <ArticleCard article={singleArticle} />
       <h5>Comments</h5>
       {commentElement}
     </div>
