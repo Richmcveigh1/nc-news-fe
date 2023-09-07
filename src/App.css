@@ -58,6 +58,10 @@
   background-color: #3772ff;
 }
 
+.user-card {
+  border: 5px solid yellow
+}
+
 @media only screen and(min-width: 600px) {
 
 }

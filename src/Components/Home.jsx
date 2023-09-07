@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import HomeArticleCard from "./Home-article-card";
 import { getArticles } from "../../api";
+import { Link } from "react-router-dom";
 
 export default function HomeArticleContainer({articles, setArticles}) {
 
@@ -39,7 +40,8 @@ useEffect(() => {
 
   return <div>
     <h2>Catch the buzz as it happens</h2>
-
+   
+    
     
     {homeArticleElements}
     </div>;

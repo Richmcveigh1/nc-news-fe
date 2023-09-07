@@ -1,8 +1,15 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://rich-mcveigh-nc-news-web-service.onrender.com/api",
+  baseURL: "http://localhost:9090/api"
+  // baseURL: "https://rich-mcveigh-nc-news-web-service.onrender.com/api",
 });
+
+export const getUsers = () => {
+  return api.get("/users").then(({data: {allUsers}}) => {
+    return allUsers
+  })
+}
 
 export const getArticles = () => {
   return api.get("/articles").then(({ data: { allArticles } }) => {
@@ -32,18 +39,13 @@ export const getComments = (article_id) => {
     });
 };
 
-// export const updateCommentVotes = (comment_id, updatedVote) => {
-//     return api.patch(`/comments/${comment_id}`
-//     )
-// }
-
-export const postComment = (comment_id, newComment) => {
-  return api.post("comments");
+export const postComment = (article_id, newComment) => {
+  return api.post(`/articles/${article_id}/comments`);
 };
 
 export const getArticlesByTopic = (topic) => {
-  return api.get(`/articles?topic=${topic}`).then(({ data: { topics } }) => {
-    return topics;
+  return api.get(`/articles?topic=${topic}`).then(({ data: { allArticles } }) => {
+    return allArticles;
   });
 };
 

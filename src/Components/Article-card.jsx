@@ -13,11 +13,13 @@ export default function ArticleCard({ article }) {
     votes,
     created_at,
   } = article;
+  console.log(article.votes, "votes");
+  const date = created_at ? created_at.slice(0, 10) : "";
+  
   const [voteCount, setVoteCount] = useState(votes);
   const [isClicked, SetIsClicked] = useState(0);
-  const date = created_at ? created_at.slice(0, 10) : "";
-  console.log(votes, "votes")
-console.log(voteCount, "voteCount")
+  // console.log(voteCount, "voteCount");
+  console.log(article.votes, "votes");
   const handleUpvote = (isClicked, SetIsClicked, voteCount, setVoteCount) => {
     if (isClicked === 0) {
       setVoteCount((currentVotes) => {
@@ -34,10 +36,10 @@ console.log(voteCount, "voteCount")
         SetIsClicked(0);
       });
     } else {
-        setVoteCount((currentVotes) => {
-            console.log(currentVotes)
-          return  currentVotes + 2
-        });
+      setVoteCount((currentVotes) => {
+        console.log(currentVotes);
+        return currentVotes + 2;
+      });
       updateArticleVotes(article_id, +2).then(() => {
         SetIsClicked(1);
       });
@@ -47,28 +49,27 @@ console.log(voteCount, "voteCount")
   const handleDownvote = (isClicked, SetIsClicked, voteCount, setVoteCount) => {
     if (isClicked === 0) {
       setVoteCount((currentVotes) => {
-        return currentVotes - 1
+        return currentVotes - 1;
       });
       updateArticleVotes(article_id, -1).then(() => {
         SetIsClicked(-1);
       });
     } else if (isClicked === -1) {
-        setVoteCount((currentVotes) => {
-            return currentVotes + 1
-        });
+      setVoteCount((currentVotes) => {
+        return currentVotes + 1;
+      });
       updateArticleVotes(article_id, 1).then(() => {
         SetIsClicked(0);
       });
     } else {
-        setVoteCount((currentVotes) => {
-            return currentVotes -2
-        });
+      setVoteCount((currentVotes) => {
+        return currentVotes - 2;
+      });
       updateArticleVotes(article_id, -2).then(() => {
         SetIsClicked(-1);
       });
     }
   };
-
 
   return (
     <div className="article-card">

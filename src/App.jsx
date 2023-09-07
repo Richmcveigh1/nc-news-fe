@@ -7,6 +7,8 @@ import { useState } from "react";
 import HomeArticleContainer from "./Components/Home";
 import IndividualArticle from "./Components/Individual-article";
 import TopicPage from "./Components/Topic-Page";
+import UserPage from "./Components/User-Page";
+
 
 function App() {
   const [topics, setTopics] = useState([]);
@@ -33,6 +35,7 @@ function App() {
             />
           }
         />
+        <Route path = "/users" element={<UserPage />} />
       </Routes>
       <Navbar topics={topics} setTopics={setTopics} />
     </div>
