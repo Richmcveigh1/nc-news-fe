@@ -13,13 +13,13 @@ export default function ArticleCard({ article }) {
     votes,
     created_at,
   } = article;
-  console.log(article.votes, "votes");
+  
   const date = created_at ? created_at.slice(0, 10) : "";
   
   const [voteCount, setVoteCount] = useState(votes);
   const [isClicked, SetIsClicked] = useState(0);
   // console.log(voteCount, "voteCount");
-  console.log(article.votes, "votes");
+
   const handleUpvote = (isClicked, SetIsClicked, voteCount, setVoteCount) => {
     if (isClicked === 0) {
       setVoteCount((currentVotes) => {
@@ -37,7 +37,7 @@ export default function ArticleCard({ article }) {
       });
     } else {
       setVoteCount((currentVotes) => {
-        console.log(currentVotes);
+       
         return currentVotes + 2;
       });
       updateArticleVotes(article_id, +2).then(() => {
