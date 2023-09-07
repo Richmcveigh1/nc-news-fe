@@ -10,10 +10,10 @@ export default function CommentCard({ comment }) {
 
   return (
     <div className="comment-card">
-      <p>{body}</p>
       <p>
         Commenter: {author} on {date}
       </p>
+      <p>{body}</p>
       <p>Votes: {voteCount}</p>
     </div>
   );

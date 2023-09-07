@@ -8,6 +8,7 @@ export default function IndividualArticle() {
   const [singleArticle, setSingleArticle] = useState({});
   const [comments, setComments] = useState([]);
 
+
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function IndividualArticle() {
 
   return (
     <div>
-      <ArticleCard article={singleArticle} />
+      <ArticleCard article={singleArticle } />
       <h5>Comments</h5>
       {commentElement}
     </div>

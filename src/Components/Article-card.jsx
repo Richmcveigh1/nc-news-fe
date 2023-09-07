@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { updateArticleVotes } from "../../api";
 
 export default function ArticleCard({ article }) {
@@ -16,7 +16,8 @@ export default function ArticleCard({ article }) {
   const [voteCount, setVoteCount] = useState(votes);
   const [isClicked, SetIsClicked] = useState(0);
   const date = created_at ? created_at.slice(0, 10) : "";
-
+  console.log(votes, "votes")
+console.log(voteCount, "voteCount")
   const handleUpvote = (isClicked, SetIsClicked, voteCount, setVoteCount) => {
     if (isClicked === 0) {
       setVoteCount((currentVotes) => {
@@ -67,6 +68,7 @@ export default function ArticleCard({ article }) {
       });
     }
   };
+
 
   return (
     <div className="article-card">
