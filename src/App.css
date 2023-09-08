@@ -71,6 +71,10 @@
   width: 3em;
 }
 
+.dropdown-menu {
+  position: relative;
+}
+
 @media only screen and(min-width: 600px) {
 
 }

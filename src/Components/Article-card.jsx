@@ -18,7 +18,7 @@ export default function ArticleCard({ article }) {
   
   const [voteCount, setVoteCount] = useState(votes);
   const [isClicked, SetIsClicked] = useState(0);
-  // console.log(voteCount, "voteCount");
+
 
   const handleUpvote = (isClicked, SetIsClicked, voteCount, setVoteCount) => {
     if (isClicked === 0) {

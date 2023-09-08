@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:9090/api"
-  // baseURL: "https://rich-mcveigh-nc-news-web-service.onrender.com/api",
+  baseURL: "https://rich-mcveigh-nc-news-web-service.onrender.com/api",
 });
 
 export const getUsers = () => {
@@ -16,6 +15,13 @@ export const getArticles = () => {
     return allArticles;
   });
 };
+
+export const sortArticles = (topic, category, order) => {
+  return api.get(`/articles?topic=${topic}&sort_by=${category}&order=${order}`).then(({data: {allArticles}}) => {
+    console.log("hello")
+    return allArticles
+  })
+}
 
 export const getIndividualArticle = (article_id) => {
   return api.get(`/articles/${article_id}`).then(({ data: { article } }) => {
