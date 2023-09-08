@@ -40,7 +40,10 @@ export const getComments = (article_id) => {
 };
 
 export const postComment = (article_id, newComment) => {
-  return api.post(`/articles/${article_id}/comments`);
+  return api.post(`/articles/${article_id}/comments`, newComment)
+  .then(({data: {comment}}) => {
+    return comment
+  })
 };
 
 export const getArticlesByTopic = (topic) => {

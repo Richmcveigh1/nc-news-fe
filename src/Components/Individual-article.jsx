@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { getIndividualArticle, getComments } from "../../api";
 import ArticleCard from "./Article-card";
 import CommentContainer from "./Comment-container";
+import CreateComment from "./Create-Comment";
 
 export default function IndividualArticle() {
   const [singleArticle, setSingleArticle] = useState({});
-
   const [loading, setLoading] = useState(false);
+  const [comments, setComments] = useState([]);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -24,7 +25,16 @@ export default function IndividualArticle() {
       <div>
         <ArticleCard article={singleArticle} />
         <h5>Comments</h5>
-        <CommentContainer article_id={article_id} />
+        <CreateComment
+          comments={comments}
+          setComments={setComments}
+          article_id={article_id}
+        />
+        <CommentContainer
+          comments={comments}
+          setComments={setComments}
+          article_id={article_id}
+        />
       </div>
     );
   }

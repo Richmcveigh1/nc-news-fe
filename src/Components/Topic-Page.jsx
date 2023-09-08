@@ -8,7 +8,7 @@ export default function TopicPage() {
   const [topicArticles, setTopicArticles] = useState([]);
   const { topic, user_id } = useParams();
   const [loading, setLoading] = useState(false);
-  console.log(user_id);
+
 
   useEffect(() => {
     setLoading(true);

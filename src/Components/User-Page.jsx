@@ -17,8 +17,6 @@ export default function UserPage() {
     </div>
   ));
 
-
-
   return (
     <>
       <h1>USER PAGE</h1>
