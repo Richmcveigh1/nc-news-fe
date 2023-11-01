@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getIndividualArticle, getComments } from "../../api";
-import ArticleCard from "./Article-card";
+import IndividualArticleCard from "./Individual-article-card";
 import CommentContainer from "./Comment-container";
 import CreateComment from "./Create-Comment";
 
@@ -23,7 +23,7 @@ export default function IndividualArticle() {
   else {
     return (
       <div>
-        <ArticleCard article={singleArticle} />
+        <IndividualArticleCard article={singleArticle} />
         <h5>Comments</h5>
         <CreateComment
           comments={comments}

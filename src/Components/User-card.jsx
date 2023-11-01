@@ -15,7 +15,7 @@ export default function UserCard({ user }) {
 
   return (
     <div className="user-card" onClick={switchUser}>
-      <p>{username}</p>
+      <p className="usercard-username">{username}</p>
       <img className="user-avatar-usercard" src={avatar_url} alt={`${username}'s profile picture`}></img>
     </div>
   );

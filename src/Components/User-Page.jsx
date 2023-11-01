@@ -12,15 +12,17 @@ export default function UserPage() {
   }, []);
 
   const userElement = users.map((user) => (
-    <div key={user.username}>
+    <div   key={user.username}>
       <UserCard user={user} />
     </div>
   ));
 
   return (
-    <>
+    <div className="user-page">
       <h1>USER PAGE</h1>
+      <div className="users-container">
       {userElement}
-    </>
+      </div>
+    </div>
   );
 }
