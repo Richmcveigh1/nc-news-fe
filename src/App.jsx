@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div>
-      <Title />
+      <Title topics={topics} setTopics={setTopics}/>
       <Routes>
         <Route path="/article/:article_id" element={<IndividualArticle />} />
         <Route

@@ -2,52 +2,65 @@
   display: flex;
   flex-direction: column;
   width: 1rem;
-  height: 1rem;
   margin: 0 auto;
   padding: 0rem;
   text-align: center;
   width: 100%;
   min-height: 100vh;
   margin: 0;
+  background-color: #000814;
+  color: #fdca40;
 }
 
 .title {
-  border: 2px solid blue;
   background-color: #fdca40;
-  h1 {
-    pointer-events: visibleStroke;
-  }
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-areas:
+    "header user-info"
+    "user-avatar-title change-user";
+  grid-row-gap: 0;
+}
+h1 {
+  pointer-events: visibleStroke;
+}
+.user-avatar-title {
+  padding-top: 10px;
+  grid-area: user-info;
+  height: 50px;
+  width: 2px;
+}
 
+p:last-child {
+  grid-area: change-user;
+}
+
+.header-user {
+  padding-right: 10px;
 }
 
 .article-container {
   border: 2px solid red;
   flex: 1;
   justify-content: space-between;
-  /* display: flex; */
-
 }
 
 .article-card {
   border: 2px solid green;
   padding: 1em;
-
-  /* display: flex; */
   .article-card-img {
     width: 10rem;
-    height:10rem;
+    height: 10rem;
   }
 }
 
-
 .navbar {
-  position: fixed;
-  bottom: 0;
+  /* position: fixed; */
+  /* bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   display: grid;
-  grid-template-columns: repeat(4, 1fr)
-
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .nav-button {
@@ -64,35 +77,33 @@
   background-color: #3772ff;
 }
 
-.user-page{
+.user-page {
   background-color: #003566;
 }
 
 .users-container {
   background-color: #003566;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
 
-
 .user-card {
-
   background-color: #003566;
   margin-left: 50px;
   margin-right: 50px;
   .usercard-username {
-    color: #FFC300;
+    color: #ffc300;
   }
   .user-avatar-usercard {
-height: 100px;
-width: 100px
+    height: 100px;
+    width: 100px;
   }
 }
 
 .user-avatar-usercard {
   width: 10em;
-  height: 10em
+  height: 10em;
 }
 
 .user-avatar-title {
@@ -103,8 +114,5 @@ width: 100px
   position: relative;
 }
 
-
-
 @media only screen and(min-width: 600px) {
-
 }
